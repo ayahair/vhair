@@ -1,0 +1,144 @@
+<div class="cireview-wrap">
+<div class="row">
+{% set row = 12/reviewperrow %}
+
+{% set col_sm_img = 12 %}
+{% set col_sm_txt = 12 %}
+{% if reviewperrow == 1 %}
+{% set col_sm_img = 4 %}
+{% set col_sm_txt = 6 %}
+{% endif %}
+{% if reviewperrow == 2 %}
+{% set col_sm_img = 5 %}
+{% set col_sm_txt = 7 %}
+{% endif %}
+
+{% set jrow = (100/reviewperrow)|round(0) %}
+{% for review in reviews %}
+<div class="col-md-{{ row }} col-sm-12 col-xs-12 xl-{{ jrow }} xs-100 sm-100">
+<div class="cireview-grid cireviews {{ review.verified ? 'ci-verified' : '' }} {{ review.imp ? 'ci-imp' : '' }}">
+<div class="row">
+<div class="col-sm-{{ col_sm_img }} col-xs-12 xl-100 xs-100">
+  {% if review.product %}
+  <div class="cireview-product-thumb">
+     <a href="{{ review.product.href }}">
+      <img src="{{ review.product.thumb }}" alt="{{ review.product.name }}" class="img-responsive" /> <br/>
+      {{ review.product.name }}
+      </a>
+  </div>
+  {% endif %}
+  
+</div>
+<div class="col-sm-{{ col_sm_txt }} col-xs-12 xl-100 xs-100">
+  {% if review.verified %}
+  <div class="verified">{{ text_verified }} <i class="fa fa-check-circle"></i></div>
+  {% endif %}
+  {% if review.author %}
+  <h3>{{ text_author }}{{ review.author }}</h3>
+  {% endif %}
+  {% if review.reviewtitle %}
+  <h4><label class="control-label">{{ text_title }}</label>{{ review.reviewtitle }}</h4>
+  {% endif %}
+  <ul class="list-unstyled average rating">
+    <li>{{ text_date_added }}{{ review.date_added }}</li>
+    {% if review.rating %}
+    <li>{{ text_rating }}
+      {% for i in 1..ratingstars %}
+      {% if review.rating < i %}
+      <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+      {% else %}
+      <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+      {% endif %}
+      {% endfor %}
+      {% if reviewratingcount %}<span class="ciratingcount"> ({{ review.rating }}) </span>{% endif %}
+    </li>
+    {% endif %}
+  </ul>
+
+<div class="all-rating">
+  {% if review.cireview_ratings and review.cireview_ratings|length > 1  %}
+  <ul class="list-unstyled">
+    {% for cireview_rating in review.cireview_ratings %}
+    <li class="cireview_rating-{{ review.review_id }}-{{ cireview_rating.cireview_rating_id }} ">
+      {{ cireview_rating.ciratingtype_name }} :
+      <div class="stars rating">
+        {% for i in 1..5 %}
+          {% if cireview_rating.rating < i %}
+          <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+          {% else %}
+          <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+          {% endif %}
+        {% endfor %}
+        {% if reviewratingcount %}<span class="ciratingcount"> ({{ cireview_rating.show_rating }}) </span>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  </div>
+      <p>{{ review.text }}</p>
+      {% if review.attach_images %}
+        <ul class="list list-inline cireviewattach_images" id="cireviewattach_images-{{ review.review_id }}">
+          {% for attach_image in review.attach_images%}
+          <li id="cireviewattach_image-{{ attach_image.cireview_image_id }}">
+            <a href="{{ attach_image.popup }}" title="{{ attach_image.title }}"> <img src="{{ attach_image.thumb }}" alt="{{ attach_image.alt }}" title="{{ attach_image.title }}" /> </a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  {% if review.comment %}
+  <div class="cireviewcomment">
+  <label class="control-label">{{ text_replyby }}: {{ reviewreplyauthor }} </label> <br/>
+  {{ review.comment }}
+  </div>
+  {% endif %}
+  {% if reviewvote %}
+  <div class="cireview-vote" id="cireview-vote-{{ review.review_id }}-{{ review.product_id }}-{{ review.cireview_id }}">
+
+    <span class="vote-result">
+      {{ review.votes.after_text }}
+    </span>
+    
+  </div>
+  {% endif %}
+    {% if reviewshare %}
+    <div class="addthis_toolbox addthis_default_style addthis_16x16_style" data-url="{{ review.share }}" addthis:url="{{ review.share }}" data-title="{{ review.author }}" addthis:title="{{ review.author }}" data-description="{{ review.text }}" addthis:description="{{ review.text }}">
+    <a class="addthis_button_facebook"></a> 
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone_share"></a> 
+    <a class="addthis_button_email"></a>  
+    <a class="addthis_button_compact"></a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+</div>
+</div>
+{% endfor %}
+
+{% if reviewshare %}
+<script type="text/javascript">var addthis_config = {"data_track_clickback": true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
+{% endif %}
+</div>
+<div class="row j-margin">
+  <div class="col-md-6 col-sm-12 xl-50 xs-100">
+    <div class="text-left">{{ results }}</div>
+  </div>
+  <div class="col-md-6 col-sm-12 xl-50 xs-100">
+    <div class="text-right">{{ pagination }}</div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('.cireviewattach_images').each(function() {
+    $(this).magnificPopup({
+      type:'image',
+      delegate: 'a',
+      gallery: {
+        enabled:true
+      }
+    });
+  });
+</script>
+</div>

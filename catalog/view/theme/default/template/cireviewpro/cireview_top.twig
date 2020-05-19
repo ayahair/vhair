@@ -1,0 +1,36 @@
+{% if reviews %}
+<div class="cireview-top">
+	<div class="citop-heading">{{ text_topreview }}</div>
+	{% set j = 1 %}
+	{% for review in reviews %}
+	<div class="cireview-inner clearfix">
+		<div class="citop-count">{{ j }}</div>	
+		<div class="outof">
+	    {% if review.rating %}
+			<div class="trate">{{ review.show_rating }}<sup>/{{ ratingstars }}</sup></div>
+			<ul class="list-unstyled top-rating">
+				<li>
+	        	{% for i in 1..ratingstars %}
+		        {% if review.rating < i %}
+		        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+		        {% else %}
+		        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+		        {% endif %}
+		        {% endfor %}
+				</li>
+			</ul>
+	    {% endif %}
+		</div>
+		<div class="ci-custom-mat">
+			{% if review.reviewtitle %}
+				<div class="citop-reviewtitle">{{ review.reviewtitle }}</div>
+			{% endif %}
+			{% if review.text %}<div class="citop-description">{{ review.text }}</div>{% endif %}
+			{% if review.author %}<div class="author">{{ review.author }}</div>{% endif %}
+			<div class="ci-date">{{ date_added }}</div>
+		</div>	
+	</div>
+	{% set j = j + 1 %}
+	{% endfor %}
+</div>
+{% endif %}

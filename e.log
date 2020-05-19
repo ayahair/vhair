@@ -1,0 +1,98 @@
+[16-Jun-2019 15:32:35 UTC] PHP Parse error:  syntax error, unexpected '}' in /Users/wugaoxue/work/hair/admin/controller/cireviewpro/cireviewpro.php on line 1859
+[16-Jun-2019 15:39:01 UTC] PHP Parse error:  syntax error, unexpected '<' in /Users/wugaoxue/work/hair/admin/view/template/cireviewpro/cireviewpro.tpl on line 19
+[16-Jun-2019 15:39:37 UTC] PHP Parse error:  syntax error, unexpected '<' in /Users/wugaoxue/work/hair/admin/view/template/cireviewpro/cireviewpro.tpl on line 19
+[16-Jun-2019 15:50:40 UTC] PHP Warning:  mysqli::__construct(): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:50:40 UTC] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=6448 in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:50:40 UTC] PHP Warning:  mysqli::__construct(): (HY000/2006): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:50:40 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:50:40 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:50:40 UTC] PHP Fatal error:  Uncaught Exception: Error: <br />Error No:  in /Users/wugaoxue/work/hair/system/library/db/mysqli.php:10
+Stack trace:
+#0 /Users/wugaoxue/work/hair/system/library/db.php(9): DB\MySQLi->__construct('127.0.0.1', 'root', '123456', 'opencart', '3306')
+#1 /Users/wugaoxue/work/hair/system/framework.php(36): DB->__construct('mysqli', '127.0.0.1', 'root', '123456', 'opencart', '3306')
+#2 /Users/wugaoxue/work/hair/vqmod/vqcache/vq2-system_startup.php(124): require_once('/Users/wugaoxue...')
+#3 /Users/wugaoxue/work/hair/index.php(23): start('catalog')
+#4 {main}
+  thrown in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:51:07 UTC] PHP Warning:  mysqli::__construct(): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:51:07 UTC] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=6449 in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:51:07 UTC] PHP Warning:  mysqli::__construct(): (HY000/2006): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:51:07 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:51:07 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:51:07 UTC] PHP Fatal error:  Uncaught Exception: Error: <br />Error No:  in /Users/wugaoxue/work/hair/system/library/db/mysqli.php:10
+Stack trace:
+#0 /Users/wugaoxue/work/hair/system/library/db.php(9): DB\MySQLi->__construct('127.0.0.1', 'root', '123456', 'opencart', '3306')
+#1 /Users/wugaoxue/work/hair/system/framework.php(36): DB->__construct('mysqli', '127.0.0.1', 'root', '123456', 'opencart', '3306')
+#2 /Users/wugaoxue/work/hair/vqmod/vqcache/vq2-system_startup.php(124): require_once('/Users/wugaoxue...')
+#3 /Users/wugaoxue/work/hair/index.php(23): start('catalog')
+#4 {main}
+  thrown in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:51:40 UTC] PHP Warning:  mysqli::__construct(): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:51:40 UTC] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=6448 in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:51:40 UTC] PHP Warning:  mysqli::__construct(): (HY000/2006): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:51:40 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:51:40 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:51:40 UTC] PHP Fatal error:  Uncaught Exception: Error: <br />Error No:  in /Users/wugaoxue/work/hair/system/library/db/mysqli.php:10
+Stack trace:
+#0 /Users/wugaoxue/work/hair/system/library/db.php(9): DB\MySQLi->__construct('127.0.0.1', 'root', '123456', 'opencart', '3306')
+#1 /Users/wugaoxue/work/hair/system/framework.php(36): DB->__construct('mysqli', '127.0.0.1', 'root', '123456', 'opencart', '3306')
+#2 /Users/wugaoxue/work/hair/vqmod/vqcache/vq2-system_startup.php(124): require_once('/Users/wugaoxue...')
+#3 /Users/wugaoxue/work/hair/index.php(23): start('catalog')
+#4 {main}
+  thrown in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:52:05 UTC] PHP Warning:  mysqli::__construct(): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:52:05 UTC] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=6449 in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:52:05 UTC] PHP Warning:  mysqli::__construct(): (HY000/2006): MySQL server has gone away in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 7
+[16-Jun-2019 15:52:05 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:52:05 UTC] PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[16-Jun-2019 15:52:05 UTC] PHP Fatal error:  Uncaught Exception: Error: <br />Error No:  in /Users/wugaoxue/work/hair/system/library/db/mysqli.php:10
+Stack trace:
+#0 /Users/wugaoxue/work/hair/system/library/db.php(9): DB\MySQLi->__construct('127.0.0.1', 'root', '123456', 'opencart', '3306')
+#1 /Users/wugaoxue/work/hair/system/framework.php(36): DB->__construct('mysqli', '127.0.0.1', 'root', '123456', 'opencart', '3306')
+#2 /Users/wugaoxue/work/hair/vqmod/vqcache/vq2-system_startup.php(124): require_once('/Users/wugaoxue...')
+#3 /Users/wugaoxue/work/hair/index.php(23): start('catalog')
+#4 {main}
+  thrown in /Users/wugaoxue/work/hair/system/library/db/mysqli.php on line 10
+[18-Jun-2019 05:53:43 UTC] PHP Warning:  require_once(./vqmod/vqmod.php): failed to open stream: No such file or directory in /Users/wugaoxue/work/hair/index.php on line 17
+[18-Jun-2019 05:53:43 UTC] PHP Fatal error:  require_once(): Failed opening required './vqmod/vqmod.php' (include_path='.:') in /Users/wugaoxue/work/hair/index.php on line 17
+[18-Jun-2019 05:54:40 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/checked.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 251
+[18-Jun-2019 05:54:40 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/mods.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 300
+[18-Jun-2019 05:54:41 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/checked.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 251
+[18-Jun-2019 05:54:41 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/mods.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 300
+[18-Jun-2019 05:54:56 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/checked.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 251
+[18-Jun-2019 05:54:56 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/mods.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 300
+[18-Jun-2019 05:54:57 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/checked.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 251
+[18-Jun-2019 05:54:57 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/mods.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 300
+[18-Jun-2019 05:54:57 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/checked.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 251
+[18-Jun-2019 05:54:57 UTC] PHP Warning:  file_put_contents(/Users/wugaoxue/work/hair/vqmod/mods.cache): failed to open stream: Permission denied in /Users/wugaoxue/work/hair/vqmod/vqmod.php on line 300
+[18-Jun-2019 15:15:44 UTC] PHP Warning:  require_once(../vqmod/vqmod.php): failed to open stream: No such file or directory in /Users/wugaoxue/work/hair/admin/index.php on line 17
+[18-Jun-2019 15:15:44 UTC] PHP Fatal error:  require_once(): Failed opening required '../vqmod/vqmod.php' (include_path='.:') in /Users/wugaoxue/work/hair/admin/index.php on line 17
+[18-Jun-2019 15:16:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function start() in /Users/wugaoxue/work/hair/admin/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /Users/wugaoxue/work/hair/admin/index.php on line 23
+[18-Jun-2019 15:16:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function start() in /Users/wugaoxue/work/hair/admin/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /Users/wugaoxue/work/hair/admin/index.php on line 23
+[18-Jun-2019 15:16:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function start() in /Users/wugaoxue/work/hair/admin/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /Users/wugaoxue/work/hair/admin/index.php on line 23
+[18-Jun-2019 15:16:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function start() in /Users/wugaoxue/work/hair/admin/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /Users/wugaoxue/work/hair/admin/index.php on line 23
+[18-Jun-2019 15:18:47 UTC] PHP Warning:  require_once(./vqmod/vqmod.php): failed to open stream: No such file or directory in /Users/wugaoxue/work/hair/index.php on line 17
+[18-Jun-2019 15:18:47 UTC] PHP Fatal error:  require_once(): Failed opening required './vqmod/vqmod.php' (include_path='.:') in /Users/wugaoxue/work/hair/index.php on line 17
+[18-Jun-2019 15:22:46 UTC] PHP Fatal error:  Uncaught Error: Class 'Controllercommondashboard' not found in /Users/wugaoxue/work/hair/system/storage/modification/system/engine/action.php:43
+Stack trace:
+#0 /Users/wugaoxue/work/hair/admin/controller/startup/router.php(26): Action->execute(Object(Registry), Array)
+#1 /Users/wugaoxue/work/hair/system/storage/modification/system/engine/action.php(51): ControllerStartupRouter->index()
+#2 /Users/wugaoxue/work/hair/system/engine/front.php(34): Action->execute(Object(Registry))
+#3 /Users/wugaoxue/work/hair/system/engine/front.php(29): Front->execute(Object(Action))
+#4 /Users/wugaoxue/work/hair/system/framework.php(103): Front->dispatch(Object(Action), Object(Action))
+#5 /Users/wugaoxue/work/hair/system/startup.php(124): require_once('/Users/wugaoxue...')
+#6 /Users/wugaoxue/work/hair/admin/index.php(15): start('admin')
+#7 {main}
+  thrown in /Users/wugaoxue/work/hair/system/storage/modification/system/engine/action.php on line 43

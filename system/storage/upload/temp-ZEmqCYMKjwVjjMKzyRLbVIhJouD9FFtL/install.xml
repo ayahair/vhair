@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>SEO ULTIMATE PACK MENU [HuntBee]</name>
+    <version>7.2</version>
+    <author>HuntBee OpenCart Services</author>
+    <link>http://www.huntbee.com</link>
+	<code>huntbee_seo_ulti_menu_ocmod</code>
+
+		<!-- MENU LINKS -->
+		 <file path="admin/controller/common/column_left.php">
+			<operation>
+                <search><![CDATA[if ($this->user->hasPermission('access', 'user/user')) {]]></search>
+                <add position="before"><![CDATA[
+				$hb_seo = array();
+				if ($this->user->hasPermission('access', 'extension/hb_seo_bulk')) {
+				$hb_seo[] = array(
+					'name'     => $this->language->get('text_seobulk'),
+					'href'     => $this->url->link('extension/hb_seo_bulk', 'token=' . $this->session->data['token'], true),
+					'children' => array()	
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'extension/hb_sitemap')) {
+				$hb_seo[] = array(
+					'name'	   => $this->language->get('text_hbsitemap'),
+					'href'     => $this->url->link('extension/hb_sitemap', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'extension/hb_seoimage')) {
+				$hb_seo[] = array(
+					'name'	   => $this->language->get('text_seoimage'),
+					'href'     => $this->url->link('extension/hb_seoimage', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'extension/hb_snippets')) {
+				$hb_seo[] = array(
+					'name'	   => $this->language->get('text_seosinppets'),
+					'href'     => $this->url->link('extension/hb_snippets', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'extension/hb_searchtag')) {
+				$hb_seo[] = array(
+					'name'	   => $this->language->get('text_searchtag'),
+					'href'     => $this->url->link('extension/hb_searchtag', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'extension/hb_tags')) {
+				$hb_seo[] = array(
+					'name'	   => $this->language->get('text_hbtags'),
+					'href'     => $this->url->link('extension/hb_tags', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'setting/errormanager')) {
+				$hb_seo[] = array(
+					'name'	   => $this->language->get('text_hberrormanager'),
+					'href'     => $this->url->link('setting/errormanager', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($hb_seo) {
+				$system[] = array(
+					'name'	   => $this->language->get('text_hbseo_ulti'),
+					'href'     => '',
+					'children' => $hb_seo
+				);
+			}
+				]]></add>
+            </operation>
+        </file>		
+		
+		<file path="admin/language/*/common/column_left.php">
+            <operation>
+                <search><![CDATA[$_['text_modification']]]></search>
+                <add position="before"><![CDATA[$_['text_hbseo_ulti']                = 'SEO Ultimate Pack';
+				$_['text_seobulk']              	= 'Basic SEO Generator';
+				$_['text_hbsitemap']               	= 'XML Sitemap Generator';
+				$_['text_seoimage']               	= 'Image SEO rename';
+				$_['text_seosinppets']              = 'Structured Data Markup';
+				$_['text_searchtag']              	= 'Search / Tag Page Meta';
+				$_['text_hbtags']               	= 'Product Tags Generator';
+				$_['text_hberrormanager']           = 'Broken Link Manager';]]></add>
+            </operation>
+        </file>
+</modification>

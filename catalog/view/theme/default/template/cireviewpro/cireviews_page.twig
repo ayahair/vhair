@@ -1,0 +1,273 @@
+{{ header }}
+<div class="container j-container {{ journal_class }}" id="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if customcss %} <style type="text/css">{{ customcss }}</style> {% endif %}
+  {% if theme_name == 'journal2' %} 
+      {{column_right}}
+    {% endif %}  
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h2>{{ heading_title }}</h2>
+      <p>{{ description }}</p>
+
+      <div class="row">
+        {% if theme_name == 'journal2' %} 
+        <div class="col-md-7 col-xs-12 xl-55 xs-100 display">
+           &nbsp;
+        </div>
+        <div class="product-filter">
+          <div class="col-md-7 col-xs-12 xl-55 xs-100 display">
+            &nbsp;
+          </div>
+          {% if limits|length %}
+          <div class="limit"><b>{{ text_limit }}</b>
+            <select onchange="location = this.value;">
+              {% for limits_ in limits %}
+              {% if limits_.value == limit %}
+              <option value="{{ limits_.href }}" selected="selected">{{ limits_.text }}</option>
+              {% else %}
+              <option value="{{ limits_.href }}">{{ limits_.text }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% endif %}
+          {% if sorts|length %}
+          <div class="sort"><b>{{ text_sort }}</b>
+            <select onchange="location = this.value;">
+              {% for sorts_ in sorts %}
+                {% if sorts_.value == '%s-%s'|format(sort, order) %}
+              <option value="{{ sorts_.href }}" selected="selected">{{ sorts_.text }}</option>
+              {% else %}
+              <option value="{{ sorts_.href }}">{{ sorts_.text }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %} 
+        {% if theme_name != 'journal2' %}
+        {% if sorts|length %}
+        <div class="col-md-3 col-xs-4 xl-25 xs-100">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+            <select id="input-sort" class="form-control" onchange="location = this.value;">
+              {% for sorts_ in sorts %}
+              {% if sorts_.value == sort ~ '-' ~ order %}
+              <option value="{{ sorts_.href }}" selected="selected">{{ sorts_.text }}</option>
+              {% else %}
+              <option value="{{ sorts_.href }}">{{ sorts_.text }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        {% endif %}
+        {% if limits|length %}
+        <div class="col-md-2 col-xs-3 xl-20 xs-100">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
+            <select id="input-limit" class="form-control" onchange="location = this.value;">
+              {% for limits_ in limits %}
+              {% if limits_.value == limit %}
+              <option value="{{ limits_.href }}" selected="selected">{{ limits_.text }}</option>
+              {% else %}
+              <option value="{{ limits_.href }}">{{ limits_.text }}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        {% endif %}
+        
+        {% if reviewsearch %}
+        {% set colmd = 12 %}
+        {% set colxs =  12 %}
+        {% set jxl = 100 %}
+        {% set jxs = 100 %}
+
+        {% if ( sorts is not empty and limits is not empty) %}
+          {% set colmd = 7 %}
+          {% set colxs =  5 %}
+          {% set jxl = 55 %}
+          {% set jxs = 100 %}
+        {% endif %}
+        {% if ( sorts is empty and limits is not empty ) %}
+          {% set colmd = 10 %}
+          {% set colxs =  9 %}
+          {% set jxl = 80 %}
+          {% set jxs = 100 %}
+        {% endif %}
+        {% if ( sorts is not empty and limits is empty) %}
+          {% set colmd = 9 %}
+          {% set colxs =  8 %}
+          {% set jxl = 75 %}
+          {% set jxs = 100  %}
+        {% endif %}
+        <div class="col-md-{{ colmd }} col-xs-{{ colxs }} xl-{{ jxl }} xs-{{ jxs }}">
+          <div id="cireviewsearch" class="form-group input-group input-group-sm">
+            <input type="text" name="cireviewsearch" value="{{ cireviewsearch }}" placeholder="{{ text_search }}" class="form-control" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-sm"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+        </div>
+
+        {% endif %}
+        
+        {% endif %}
+      </div>
+      {% if reviews %}
+       {{ reviews_view }} 
+      {% else %}
+      <div class="row">
+        <div class="col-sm-12 xl-100 xs-100">
+           <h4 class="text-center">{{ text_no_reviews }}</h4> 
+        </div>
+      </div>
+      {% endif %}
+      {% if promo_products %}
+      <div class="row">
+        <div class="col-sm-12 xl-100 xs-100 sm-100">
+          <h2 class="text-{{ reviewpromoalign }}">{{ text_promoproduct_title }}</h2>
+          <ul class="list-inline list">
+            {% for promo_product in promo_products %}
+            <li>
+              <div class="cireview-product-thumb">
+                <a href="{{ promo_product.href }}">
+                {% if promo_product.thumb %}                
+                <img src="{{ promo_product.thumb }}" alt="{{ promo_product.name }}" class="img-responsive" /><br/>
+                {% endif %}
+                {% if reviewpromoproductnameshow %}
+                <h5>{{ promo_product.name }}</h5>
+                {% endif %}
+                {% if promo_product.rating %}
+                <div class="rating">
+                  {% for i in 1..5 %}
+                  {% if promo_product.rating < i %}
+                  <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                  {% else %}
+                  <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                {% endif %}
+                {% if promo_product.price %}
+                <p class="price">
+                  {% if not promo_product.special %}
+                  {{ promo_product.price }}
+                  {% else %}
+                  <span class="price-new">{{ promo_product.special }}</span> <span class="price-old">{{ promo_product.price }}</span>
+                  {% endif %}
+                  {% if promo_product.tax %}
+                  <span class="price-tax">{{ text_tax }} {{ promo_product.tax }}</span>
+                  {% endif %}
+                </p>
+                {% endif %}
+                </a>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if promo_categories %}
+      <div class="row">
+        <div class="col-sm-12 xl-100 xs-100 sm-100">
+          <h2 class="text-{{ reviewpromoalign }}">{{ text_promocategory_title }}</h2>
+          <ul class="list-inline list">
+            {% for promo_category in promo_categories %}
+            <li>
+              <div class="cireview-product-thumb">
+                <a href="{{ promo_category.href }}">
+                {% if promo_category.thumb %}                
+                <img src="{{ promo_category.thumb }}" alt="{{ promo_category.name }}" class="img-responsive" /><br/>
+                {% endif %}
+                {% if reviewpromocategorynameshow %}
+                <h5>{{ promo_category.name }}</h5>
+                {% endif %}
+                </a>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      {% if promo_manufacturers %}
+      <div class="row">
+        <div class="col-sm-12 xl-100 xs-100 sm-100">
+          <h2 class="text-{{ reviewpromoalign }}">{{ text_promomanufacturer_title }}</h2>
+          <ul class="list-inline list">
+            {% for promo_manufacturer in promo_manufacturers %}
+            <li>
+              <div class="cireview-product-thumb">
+                <a href="{{ promo_manufacturer.href }}">
+                {% if promo_manufacturer.thumb %}                
+                <img src="{{ promo_manufacturer.thumb }}" alt="{{ promo_manufacturer.name }}" class="img-responsive" /><br/>
+                {% endif %}
+                {% if reviewpromomanufacturernameshow %}
+                <h5>{{ promo_manufacturer.name }}</h5>
+                {% endif %}
+                </a>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {% if theme_name != 'journal2' %}{{ column_right }}{% endif %}
+  </div>
+  
+  {% if reviewsearch %}
+  <script type="text/javascript">
+     /* Search */
+    $('#cireviewsearch input[name=\'cireviewsearch\']').parent().find('button').on('click', function() {
+      var url = $('base').attr('href') + 'index.php?route=cireviewpro/cireviews';
+
+      var value = $('#cireviewsearch input[name=\'cireviewsearch\']').val();
+
+      if (value) {
+        url += '&cireviewsearch=' + encodeURIComponent(value);        
+      }
+
+      {% if reviewsortshow %}
+      {% if limit %}
+      url += '&limit=' + encodeURIComponent('{{ limit }}');
+      {% endif %}
+      {% if sort %}
+      url += '&sort=' + encodeURIComponent('{{ sort }}');
+      {% endif %}
+      {% if order %}
+      url += '&order=' + encodeURIComponent('{{ order }}');
+      {% endif %}
+      {% endif %}
+      location = url;
+    });
+
+
+    $('#cireviewsearch input[name=\'cireviewsearch\']').on('keydown', function(e) {
+      if (e.keyCode == 13) {
+        $('#cireviewsearch input[name=\'cireviewsearch\']').parent().find('button').trigger('click');
+      }
+    });
+  </script>
+  {% endif %}
+  
+</div>
+{{ footer }}

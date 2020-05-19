@@ -1,0 +1,53 @@
+<div id="aggerate-cireview" class="cireview-wrap">
+  <div class="cireview-aggerate cireviews">    
+    <div class="row">
+      <h3 class="cireview-aggerate-title"><a href="{{ href_review }}">{{ text_reviewover }}</a></h3>
+      {% set colsm = 12 %}
+      {% set jxl = 100 %}
+      {% if (cireview_ratings and cireview_ratings|length > 1) %}
+        {% set colsm = 7 %}
+        {% set jxl = 70 %}
+      {% endif %}
+      <ul class="list-unstyled average rating text-center final-avrge">
+        <li><label class="control-label">{{ text_rating }}</label> 
+          {% for i in 1..5 %}
+          {% if avg_rating < i %}
+          <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+          {% else %}
+          <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+          {% endif %}
+          {% endfor %}
+          {% if reviewratingcount %}<span class="ciratingcount"> ({{ show_avg_rating }}) </span>{% endif %}
+        </li>
+      </ul>
+      <div class="col-sm-{{ colsm }} col-xs-12 xl-{{ jxl }} xs-100 sm-100 j-margin">
+        <p>{{ text_total_reviews }} <br/>
+          <span class="giverating addrating">{{ text_write_review }}</span>
+        </p>
+      </div>
+      {% if (cireview_ratings and cireview_ratings|length > 1) %}
+      <div class="col-sm-5 col-xs-12 all-rating xl-30 xs-100 sm-100 j-margin">        
+        {% if (cireview_ratings and cireview_ratings|length > 1) %}
+        <ul class="list-unstyled">
+          {% for cireview_rating in cireview_ratings %}
+          <li class="cireview_avgrating-{{ cireview_rating.ciratingtype_id }}">
+            <label class="control-label">{{ cireview_rating.ciratingtype_name }} : </label>
+            <div class="stars rating">
+              {% for i in 1..5 %}
+                {% if cireview_rating.rating < i %}
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                {% else %}
+                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                {% endif %}
+              {% endfor %} 
+              {% if reviewratingcount %}<span class="ciratingcount"> ({{ cireview_rating.show_rating }}) </span>{% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

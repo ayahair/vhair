@@ -1,0 +1,19 @@
+.form-group .col-sm-12.control-label { text-align: left; padding-bottom: 5px; }  
+
+/*.table { word-wrap: break-word; word-break: break-all; }*/
+
+.btn-group .active{ background : #1872A2; color: #fff; border-color: #1872A2; }
+.btn-group .btn:hover{ background : #1872A2; color: #fff; border-color: #1872A2; }
+
+.nav.nav-tabs > li > a{ padding: 15px 35px; text-transform: uppercase; outline: 0;}
+.nav.nav-tabs > li > a i{ font-size: 18px; padding-right: 5px; }
+.nav.nav-pills > li > a { padding: 15px 15px;  }
+
+.support-wrap{ background: #eee none repeat scroll 0 0; border-bottom: 2px solid #ffc00d; border-radius: 10px; display: inline-block; padding: 35px 15px; }
+.support-wrap i { font-size: 50px; display: inline-block; padding-right: 20px; }
+.support-wrap .ciinfo{ display: inline-block; }
+#form-cireviewpro fieldset legend { margin-bottom: 0; }
+
+.table thead > tr > td, .table tbody > tr > td {
+    word-break: break-all;
+}
